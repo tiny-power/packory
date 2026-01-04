@@ -5,7 +5,6 @@ import 'package:packory/ad/native.dart';
 import 'package:packory/ad/rewarded.dart';
 import 'package:packory/generated/l10n.dart';
 import 'package:packory/main.dart';
-import 'package:packory/providers/seconder_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +12,6 @@ import 'package:toast/toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:packory/providers/amounter_model.dart';
 import 'package:packory/providers/dateer_model.dart';
-import 'package:packory/providers/recorder_model.dart';
 import 'package:packory/ad/banner.dart';
 
 class OtherPage extends StatefulWidget {

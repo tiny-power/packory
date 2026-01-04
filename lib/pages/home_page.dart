@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 import 'dart:async';
-import 'dart:io';
 
 import 'package:packory/ad/banner.dart';
 import 'package:packory/ad/interstitial.dart';
@@ -16,10 +15,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:packory/providers/recorder_model.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_udid/flutter_udid.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:toast/toast.dart';
 
 class HomePage extends StatefulWidget {
@@ -326,12 +323,6 @@ class _HomePageState extends State<HomePage> with RouteAware {
         gravity: Toast.top,
       );
     }
-  }
-
-  Rect _getScreenCenterRext(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final center = Offset(size.width / 2, size.height / 2);
-    return center & const Size(1, 1);
   }
 
   void _changeLanguage(Locale locale) {

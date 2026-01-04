@@ -493,5 +493,7 @@
 				<string>r3y5dwb26t.skadnetwork</string>
 			</dict>
 		</array>
+		<key>UIViewControllerBasedStatusBarAppearance</key>
+		<false/>
 	</dict>
 </plist>
