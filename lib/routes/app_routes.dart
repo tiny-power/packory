@@ -1,11 +1,8 @@
 import 'package:packory/pages/about_us_page.dart';
-import 'package:packory/pages/contact_us_page.dart';
 import 'package:packory/pages/feedback_page.dart';
 import 'package:packory/pages/home_page.dart';
 import 'package:packory/pages/other_page.dart';
-import 'package:packory/pages/privacy_policy_page.dart';
 import 'package:packory/pages/record_page.dart';
-import 'package:packory/pages/use_terms_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -28,20 +25,8 @@ class AppRoutes {
         builder: (context, state) => const AboutUsPage(),
       ),
       GoRoute(
-        path: '/contactUsPage',
-        builder: (context, state) => const ContactUsPage(),
-      ),
-      GoRoute(
         path: '/feedbackPage',
         builder: (context, state) => const FeedbackPage(),
-      ),
-      GoRoute(
-        path: '/privacyPolicyPage',
-        builder: (context, state) => const PrivacyPolicyPage(),
-      ),
-      GoRoute(
-        path: '/useTermsPage',
-        builder: (context, state) => const UseTermsPage(),
       ),
       GoRoute(path: '/record', builder: (context, state) => const RecordPage()),
     ],
