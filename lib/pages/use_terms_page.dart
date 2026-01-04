@@ -12,7 +12,7 @@ class UseTermsPage extends StatelessWidget {
           padding: .all(12),
           children: [
             Text(
-              '火烈鸟记账软件用户协议',
+              'Packory软件用户协议',
               style: TextStyle(fontSize: 22, fontWeight: .bold),
             ),
             SizedBox(height: 10.0),
@@ -24,7 +24,7 @@ class UseTermsPage extends StatelessWidget {
             Text('说明', style: TextStyle(fontSize: 22)),
             SizedBox(height: 10.0),
             Text(
-              '欢迎您使用火烈鸟记账应用程序(以下简称“应用")向您提供的记账以及服务(以下称“记账服务"或“本服务")!为使用本服务，您应当阅读并遵守《咔皮记账用户协议》(以下称“本协议")、《个人信息保护政策》等相关协议政策及规则。',
+              '欢迎您使用Packory应用程序(以下简称“应用")向您提供的记账以及服务(以下称“记账服务"或“本服务")!为使用本服务，您应当阅读并遵守《咔皮记账用户协议》(以下称“本协议")、《个人信息保护政策》等相关协议政策及规则。',
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(height: 10.0),

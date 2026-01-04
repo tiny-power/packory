@@ -57,7 +57,7 @@ class _SettingPageState extends State<SettingPage> {
                       crossAxisAlignment: .start,
                       children: [
                         Text(
-                          "火烈鸟记账",
+                          "Packory",
                           style: TextStyle(
                             fontSize: 28,
                             color: Theme.of(context).colorScheme.primary,

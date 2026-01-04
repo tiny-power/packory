@@ -39,7 +39,7 @@ class _RecordPageState extends State<RecordPage> {
         padding: .all(12),
         width: double.infinity,
         child: WatermarkWidget(
-          text: '火烈鸟记账',
+          text: 'Packory',
           opacity: 0.2,
           color: Theme.of(context).colorScheme.inversePrimary,
           rotationAngle: -0.5,

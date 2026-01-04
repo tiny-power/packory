@@ -26,7 +26,7 @@ class AboutUsPage extends StatelessWidget {
                 Container(
                   margin: .only(top: 18),
                   child: Text(
-                    '火烈鸟记账',
+                    'Packory',
                     style: TextStyle(fontSize: 20, fontWeight: .bold),
                   ),
                 ),
