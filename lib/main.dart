@@ -1,13 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'package:anythink_sdk/at_init.dart';
-import 'package:packory/ad/ad_config.dart';
-import 'package:packory/ad/banner.dart';
-import 'package:packory/ad/interstitial.dart';
-import 'package:packory/ad/listener.dart';
-import 'package:packory/ad/native.dart';
-import 'package:packory/ad/rewarded.dart';
-import 'package:packory/ad/splash.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:packory/providers/rewarder_model.dart';
 import 'package:packory/providers/seconder_model.dart';
 import 'package:packory/providers/udider_model.dart';
@@ -61,30 +54,9 @@ class _MyAppState extends State<MyApp> {
   }
 
   void initialization() async {
-    initAd();
     await Future.delayed(const Duration(seconds: 1));
     FlutterNativeSplash.remove();
-    SplashAd.loadSplash();
-    bool splashValue = await SplashAd.splashReady();
-    if (splashValue) {
-      SplashAd.showSplashAd();
-    }
     requestTrackingPermission();
-  }
-
-  Future<void> initAd() async {
-    // await ATInitManger.setLogEnabled(logEnabled: true);
-    String result = await ATInitManger.initAnyThinkSDK(
-      appidStr: AdConfig.appid,
-      appidkeyStr: AdConfig.secret,
-    );
-    if (result == 'succeed') {
-      BannerAd.loadBanner();
-      NativeAd.loadNative();
-      InterstitialAd.loadInterstitial();
-      RewardedAd.loadRewarded();
-    }
-    ListenerAd.rewarderListen();
   }
 
   Future<void> requestTrackingPermission() async {
@@ -116,33 +88,35 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          appBarTheme: AppBarTheme(
-            centerTitle: true,
-            elevation: 0,
-            titleTextStyle: TextStyle(
-              fontSize: 18,
-              color: Theme.of(context).colorScheme.inverseSurface,
-            ),
-          ),
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        ),
-        darkTheme: ThemeData(
-          appBarTheme: AppBarTheme(
-            centerTitle: true,
-            elevation: 0,
-            titleTextStyle: TextStyle(
-              fontSize: 18,
-              color: Theme.of(context).colorScheme.surface,
-            ),
-          ),
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          useMaterial3: true,
-        ),
+        theme: FlexThemeData.light(scheme: FlexScheme.shadGray),
+        darkTheme: FlexThemeData.dark(scheme: FlexScheme.shadGray),
+        // theme: ThemeData(
+        //   appBarTheme: AppBarTheme(
+        //     centerTitle: true,
+        //     elevation: 0,
+        //     titleTextStyle: TextStyle(
+        //       fontSize: 18,
+        //       color: Theme.of(context).colorScheme.inverseSurface,
+        //     ),
+        //   ),
+        //   splashColor: Colors.transparent,
+        //   highlightColor: Colors.transparent,
+        //   useMaterial3: true,
+        //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        // ),
+        // darkTheme: ThemeData(
+        //   appBarTheme: AppBarTheme(
+        //     centerTitle: true,
+        //     elevation: 0,
+        //     titleTextStyle: TextStyle(
+        //       fontSize: 18,
+        //       color: Theme.of(context).colorScheme.surface,
+        //     ),
+        //   ),
+        //   splashColor: Colors.transparent,
+        //   highlightColor: Colors.transparent,
+        //   useMaterial3: true,
+        // ),
         themeMode: ThemeMode.system,
         routerConfig: AppRoutes.router,
         localizationsDelegates: [

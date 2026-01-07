@@ -1,18 +1,13 @@
 PODS:
-  - anythink_sdk (1.0.8):
-    - AnyThinkGDTSDKAdapter (= 6.4.93)
-    - AnyThinkiOS (= 6.4.93)
-    - AnyThinkKuaiShouSDKAdapter (= 6.4.93.1)
-    - Flutter
   - AnyThinkGDTSDKAdapter (6.4.93):
     - AnyThinkiOS (= 6.4.93)
     - GDTMobSDK (= 4.15.60)
   - AnyThinkiOS (6.4.93):
     - AnyThinkiOS/AnyThinkSDK (= 6.4.93)
   - AnyThinkiOS/AnyThinkSDK (6.4.93)
-  - AnyThinkKuaiShouSDKAdapter (6.4.93.1):
+  - AnyThinkKuaiShouSDKAdapter (6.4.93):
     - AnyThinkiOS (= 6.4.93)
-    - KSAdSDK (= 4.9.20.3)
+    - KSAdSDK (= 4.9.20.1)
   - app_tracking_transparency (0.0.1):
     - Flutter
   - Flutter (1.0.0)
@@ -25,7 +20,7 @@ PODS:
     - KeychainAccess
   - GDTMobSDK (4.15.60)
   - KeychainAccess (4.2.2)
-  - KSAdSDK (4.9.20.3)
+  - KSAdSDK (4.9.20.1)
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -39,7 +34,9 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - anythink_sdk (from `.symlinks/plugins/anythink_sdk/ios`)
+  - AnyThinkGDTSDKAdapter (= 6.4.93)
+  - AnyThinkiOS (= 6.4.93)
+  - AnyThinkKuaiShouSDKAdapter (= 6.4.93)
   - app_tracking_transparency (from `.symlinks/plugins/app_tracking_transparency/ios`)
   - Flutter (from `Flutter`)
   - flutter_localization (from `.symlinks/plugins/flutter_localization/ios`)
@@ -60,8 +57,6 @@ SPEC REPOS:
     - KSAdSDK
 
 EXTERNAL SOURCES:
-  anythink_sdk:
-    :path: ".symlinks/plugins/anythink_sdk/ios"
   app_tracking_transparency:
     :path: ".symlinks/plugins/app_tracking_transparency/ios"
   Flutter:
@@ -82,10 +77,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  anythink_sdk: 47d15bcdfca2ef2e559e2caa4befba3611f3adfe
   AnyThinkGDTSDKAdapter: ee47cf47f938dc9c5b63967008549ebc9892e5f3
   AnyThinkiOS: a8546fb9a6469059714a230dab52ef9a963deb17
-  AnyThinkKuaiShouSDKAdapter: 7cac9840b9f1efdba254248a121fc13a101cab68
+  AnyThinkKuaiShouSDKAdapter: 47d114e8e1a9a8d1a4e8cb182b7fb8ec9a5f91a6
   app_tracking_transparency: e169b653478da7bb15a6c61209015378ca73e375
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
   flutter_localization: f43b18844a2b3d2c71fd64f04ffd6b1e64dd54d4
@@ -93,12 +87,12 @@ SPEC CHECKSUMS:
   flutter_udid: 8bd93f87dee925989788ae646418a63c73a15407
   GDTMobSDK: 8cd8edbf854115062da986ce7bc4b57948f69e2b
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
-  KSAdSDK: 67a876447cd14b419ed45e2dad55a9a6db42cafb
+  KSAdSDK: 049c561def63908e62071dbed49eb18822e5aabe
   path_provider_foundation: 0b743cbb62d8e47eab856f09262bb8c1ddcfe6ba
   shared_preferences_foundation: 5086985c1d43c5ba4d5e69a4e8083a389e2909e6
   sqflite_darwin: 5a7236e3b501866c1c9befc6771dfd73ffb8702d
   url_launcher_ios: bb13df5870e8c4234ca12609d04010a21be43dfa
 
-PODFILE CHECKSUM: 3c63482e143d1b91d2d2560aee9fb04ecc74ac7e
+PODFILE CHECKSUM: cde47b680e4976981f347caa76ee3525c7804b49
 
 COCOAPODS: 1.16.2

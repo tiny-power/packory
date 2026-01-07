@@ -1,9 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'dart:async';
 
-import 'package:packory/ad/banner.dart';
-import 'package:packory/ad/interstitial.dart';
-import 'package:packory/ad/native.dart';
 import 'package:packory/generated/l10n.dart';
 import 'package:packory/main.dart';
 import 'package:packory/providers/rewarder_model.dart';
@@ -28,11 +25,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with RouteAware {
   DateTime selectedDate = DateTime.now();
-  late Timer _interstitialTimer;
+  // late Timer _interstitialTimer;
   late Timer _timer;
-  late Timer _bannerTimer;
-  late Timer _nativeTimer;
-  late Timer _fourteenNativeTimer;
+  // late Timer _bannerTimer;
+  // late Timer _nativeTimer;
+  // late Timer _fourteenNativeTimer;
   late StreamSubscription _streamSubscription;
 
   @override
@@ -45,23 +42,23 @@ class _HomePageState extends State<HomePage> with RouteAware {
         seconderModel.evaluate(seconderModel.second - 1);
       }
     });
-    _fourteenNativeTimer = Timer.periodic(Duration(seconds: 14), (timer) async {
-      NativeAd.removeNative();
-      NativeAd.loadNative();
-      bool nativeValue = await NativeAd.nativeAdReady();
-      if (nativeValue) {
-        NativeAd.showNative();
-      } else {
-        _nativeTimer = Timer.periodic(Duration(seconds: 1), (timer) async {
-          NativeAd.loadNative();
-          bool nativeValue = await NativeAd.nativeAdReady();
-          if (nativeValue) {
-            _nativeTimer.cancel();
-            NativeAd.showNative();
-          }
-        });
-      }
-    });
+    // _fourteenNativeTimer = Timer.periodic(Duration(seconds: 14), (timer) async {
+    //   NativeAd.removeNative();
+    //   NativeAd.loadNative();
+    //   bool nativeValue = await NativeAd.nativeAdReady();
+    //   if (nativeValue) {
+    //     NativeAd.showNative();
+    //   } else {
+    //     _nativeTimer = Timer.periodic(Duration(seconds: 1), (timer) async {
+    //       NativeAd.loadNative();
+    //       bool nativeValue = await NativeAd.nativeAdReady();
+    //       if (nativeValue) {
+    //         _nativeTimer.cancel();
+    //         NativeAd.showNative();
+    //       }
+    //     });
+    //   }
+    // });
     final recorderModel = Provider.of<RecorderModel>(context, listen: false);
     recorderModel.queryData(DateTime.now());
     super.initState();
@@ -80,59 +77,59 @@ class _HomePageState extends State<HomePage> with RouteAware {
   }
 
   void showInterstitial() async {
-    InterstitialAd.loadInterstitial();
-    bool interstitialValue = await InterstitialAd.interstitialAdReady();
-    if (interstitialValue) {
-      InterstitialAd.showInterstitial();
-    } else {
-      _interstitialTimer = Timer.periodic(Duration(seconds: 1), (timer) async {
-        InterstitialAd.loadInterstitial();
-        bool interstitialValue = await InterstitialAd.interstitialAdReady();
-        if (interstitialValue) {
-          _interstitialTimer.cancel();
-          InterstitialAd.showInterstitial();
-        }
-      });
-    }
+    // InterstitialAd.loadInterstitial();
+    // bool interstitialValue = await InterstitialAd.interstitialAdReady();
+    // if (interstitialValue) {
+    //   InterstitialAd.showInterstitial();
+    // } else {
+    //   _interstitialTimer = Timer.periodic(Duration(seconds: 1), (timer) async {
+    //     InterstitialAd.loadInterstitial();
+    //     bool interstitialValue = await InterstitialAd.interstitialAdReady();
+    //     if (interstitialValue) {
+    //       _interstitialTimer.cancel();
+    //       InterstitialAd.showInterstitial();
+    //     }
+    //   });
+    // }
   }
 
   void initialization() async {
-    BannerAd.removeBanner();
-    BannerAd.loadBanner();
-    bool bannerValue = await BannerAd.bannerAdReady();
-    if (bannerValue) {
-      BannerAd.showBanner();
-    } else {
-      _bannerTimer = Timer.periodic(Duration(seconds: 3), (timer) async {
-        BannerAd.loadBanner();
-        bool bannerValue = await BannerAd.bannerAdReady();
-        if (bannerValue) {
-          _bannerTimer.cancel();
-          BannerAd.showBanner();
-        }
-      });
-    }
-    NativeAd.removeNative();
-    NativeAd.loadNative();
-    bool nativeValue = await NativeAd.nativeAdReady();
-    if (nativeValue) {
-      NativeAd.showNative();
-    } else {
-      _nativeTimer = Timer.periodic(Duration(seconds: 3), (timer) async {
-        NativeAd.loadNative();
-        bool nativeValue = await NativeAd.nativeAdReady();
-        if (nativeValue) {
-          _nativeTimer.cancel();
-          NativeAd.showNative();
-        }
-      });
-    }
+    // BannerAd.removeBanner();
+    // BannerAd.loadBanner();
+    // bool bannerValue = await BannerAd.bannerAdReady();
+    // if (bannerValue) {
+    //   BannerAd.showBanner();
+    // } else {
+    //   _bannerTimer = Timer.periodic(Duration(seconds: 3), (timer) async {
+    //     BannerAd.loadBanner();
+    //     bool bannerValue = await BannerAd.bannerAdReady();
+    //     if (bannerValue) {
+    //       _bannerTimer.cancel();
+    //       BannerAd.showBanner();
+    //     }
+    //   });
+    // }
+    // NativeAd.removeNative();
+    // NativeAd.loadNative();
+    // bool nativeValue = await NativeAd.nativeAdReady();
+    // if (nativeValue) {
+    //   NativeAd.showNative();
+    // } else {
+    //   _nativeTimer = Timer.periodic(Duration(seconds: 3), (timer) async {
+    //     NativeAd.loadNative();
+    //     bool nativeValue = await NativeAd.nativeAdReady();
+    //     if (nativeValue) {
+    //       _nativeTimer.cancel();
+    //       NativeAd.showNative();
+    //     }
+    //   });
+    // }
   }
 
   @override
   void dispose() {
     _timer.cancel();
-    _fourteenNativeTimer.cancel();
+    // _fourteenNativeTimer.cancel();
     _streamSubscription.cancel();
     routeObserver.unsubscribe(this);
     super.dispose();
@@ -160,23 +157,23 @@ class _HomePageState extends State<HomePage> with RouteAware {
       }
     });
     showInterstitial();
-    _fourteenNativeTimer = Timer.periodic(Duration(seconds: 14), (timer) async {
-      NativeAd.removeNative();
-      NativeAd.loadNative();
-      bool nativeValue = await NativeAd.nativeAdReady();
-      if (nativeValue) {
-        NativeAd.showNative();
-      } else {
-        _nativeTimer = Timer.periodic(Duration(seconds: 1), (timer) async {
-          NativeAd.loadNative();
-          bool nativeValue = await NativeAd.nativeAdReady();
-          if (nativeValue) {
-            _nativeTimer.cancel();
-            NativeAd.showNative();
-          }
-        });
-      }
-    });
+    // _fourteenNativeTimer = Timer.periodic(Duration(seconds: 14), (timer) async {
+    //   NativeAd.removeNative();
+    //   NativeAd.loadNative();
+    //   bool nativeValue = await NativeAd.nativeAdReady();
+    //   if (nativeValue) {
+    //     NativeAd.showNative();
+    //   } else {
+    //     _nativeTimer = Timer.periodic(Duration(seconds: 1), (timer) async {
+    //       NativeAd.loadNative();
+    //       bool nativeValue = await NativeAd.nativeAdReady();
+    //       if (nativeValue) {
+    //         _nativeTimer.cancel();
+    //         NativeAd.showNative();
+    //       }
+    //     });
+    //   }
+    // });
   }
 
   void _getCoolingSencond() async {
@@ -292,28 +289,28 @@ class _HomePageState extends State<HomePage> with RouteAware {
     final seconderModel = Provider.of<SeconderModel>(context, listen: false);
     if (seconderModel.second <= 0) {
       if (seconderModel.defaultSecond == 0) {
-        _fourteenNativeTimer.cancel();
-        try {
-          _bannerTimer.cancel();
-          _nativeTimer.cancel();
-        } catch (e) {
-          e.toString();
-        }
+        // _fourteenNativeTimer.cancel();
+        // try {
+        //   _bannerTimer.cancel();
+        //   _nativeTimer.cancel();
+        // } catch (e) {
+        //   e.toString();
+        // }
         context.push('/otherPage');
       } else {
-        InterstitialAd.loadInterstitial();
-        bool interstitialAdValue = await InterstitialAd.interstitialAdReady();
-        if (interstitialAdValue) {
-          _fourteenNativeTimer.cancel();
-          try {
-            _bannerTimer.cancel();
-            _nativeTimer.cancel();
-          } catch (e) {
-            e.toString();
-          }
-          InterstitialAd.showInterstitial();
-          context.push('/otherPage');
-        }
+        // InterstitialAd.loadInterstitial();
+        // bool interstitialAdValue = await InterstitialAd.interstitialAdReady();
+        // if (interstitialAdValue) {
+        //   _fourteenNativeTimer.cancel();
+        //   try {
+        //     _bannerTimer.cancel();
+        //     _nativeTimer.cancel();
+        //   } catch (e) {
+        //     e.toString();
+        //   }
+        //   InterstitialAd.showInterstitial();
+        //   context.push('/otherPage');
+        // }
       }
     } else {
       ToastContext().init(context);
@@ -334,6 +331,8 @@ class _HomePageState extends State<HomePage> with RouteAware {
     setState(() {});
   }
 
+  void _onSettingsPressed() {}
+
   Widget buildRecord() {
     final recorderModel = Provider.of<RecorderModel>(context, listen: false);
     if (recorderModel.totalList.isEmpty) {
@@ -348,13 +347,13 @@ class _HomePageState extends State<HomePage> with RouteAware {
               Icon(
                 Icons.currency_bitcoin,
                 size: 80,
-                color: Theme.of(context).colorScheme.inversePrimary,
+                color: Theme.of(context).colorScheme.primary,
               ),
               Text(
                 S.current.slogan,
                 style: TextStyle(
                   fontSize: 18,
-                  color: Theme.of(context).colorScheme.inversePrimary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ],
@@ -558,23 +557,16 @@ class _HomePageState extends State<HomePage> with RouteAware {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(
-          S.current.app_name,
-          style: TextStyle(
-            fontSize: 18,
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
-        ),
+        title: Text(S.current.app_name, style: TextStyle(fontSize: 18)),
         centerTitle: true,
         elevation: 0,
+        leading: IconButton(
+          onPressed: _onSettingsPressed,
+          icon: Icon(Icons.settings),
+        ),
         actions: [
           PopupMenuButton<Locale>(
-            color: Theme.of(context).colorScheme.onPrimary,
-            icon: Icon(
-              Icons.language,
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+            icon: Icon(Icons.language),
             position: .under,
             onSelected: _changeLanguage,
             constraints: BoxConstraints(maxWidth: 90),
@@ -592,10 +584,7 @@ class _HomePageState extends State<HomePage> with RouteAware {
           ),
           IconButton(
             onPressed: _onPressed,
-            icon: Icon(
-              Icons.add_circle_outline_sharp,
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+            icon: Icon(Icons.add_circle_outline_sharp),
           ),
         ],
       ),

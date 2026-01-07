@@ -60,7 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "salary": MessageLookupByLibrary.simpleMessage("工资"),
     "shopping": MessageLookupByLibrary.simpleMessage("购物"),
     "sideline": MessageLookupByLibrary.simpleMessage("兼职"),
-    "slogan": MessageLookupByLibrary.simpleMessage("记下的不是账，是未来的选择权"),
+    "slogan": MessageLookupByLibrary.simpleMessage("打包, 旅行, 再重复"),
     "snack": MessageLookupByLibrary.simpleMessage("零食"),
     "social": MessageLookupByLibrary.simpleMessage("社交"),
     "study": MessageLookupByLibrary.simpleMessage("学习"),

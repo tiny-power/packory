@@ -1,8 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'dart:async';
 
-import 'package:packory/ad/native.dart';
-import 'package:packory/ad/rewarded.dart';
 import 'package:packory/generated/l10n.dart';
 import 'package:packory/main.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +10,6 @@ import 'package:toast/toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:packory/providers/amounter_model.dart';
 import 'package:packory/providers/dateer_model.dart';
-import 'package:packory/ad/banner.dart';
 
 class OtherPage extends StatefulWidget {
   const OtherPage({super.key});
@@ -25,9 +22,9 @@ class _OtherPageState extends State<OtherPage> {
 
   @override
   void initState() {
-    BannerAd.removeBanner();
-    NativeAd.removeNative();
-    RewardedAd.loadRewarded();
+    // BannerAd.removeBanner();
+    // NativeAd.removeNative();
+    // RewardedAd.loadRewarded();
     super.initState();
     _streamSubscription = eventBus.on().listen((event) {
       if (event == 'pushRecord') {
@@ -47,47 +44,281 @@ class _OtherPageState extends State<OtherPage> {
     {"name": S.current.shopping, "icon": Icons.shopping_bag},
     {"name": S.current.daily_use, "icon": Icons.adf_scanner},
     {"name": S.current.traffic, "icon": Icons.commute},
-
-    {"name": S.current.vegetable, "icon": Icons.forest},
-    {"name": S.current.fruit, "icon": Icons.apple},
-    {"name": S.current.snack, "icon": Icons.icecream},
-    {"name": S.current.exercise, "icon": Icons.directions_bike},
-
-    {"name": S.current.game, "icon": Icons.music_note},
-    {"name": S.current.communication, "icon": Icons.phone},
-    {"name": S.current.clothing, "icon": Icons.curtains},
-    {"name": S.current.beauty, "icon": Icons.soap},
-
-    {"name": S.current.housing, "icon": Icons.house},
-    {"name": S.current.home, "icon": Icons.chair},
-    {"name": S.current.child, "icon": Icons.child_care},
-    {"name": S.current.elder, "icon": Icons.elderly},
-
-    {"name": S.current.social, "icon": Icons.chat},
-    {"name": S.current.travel, "icon": Icons.flight},
-    {"name": S.current.alcohol, "icon": Icons.wine_bar},
-    {"name": S.current.digital, "icon": Icons.laptop},
-
-    {"name": S.current.car, "icon": Icons.car_crash},
-    {"name": S.current.medical, "icon": Icons.medical_services},
-    {"name": S.current.book, "icon": Icons.book},
-    {"name": S.current.study, "icon": Icons.school},
-
-    {"name": S.current.pet, "icon": Icons.pets},
-    {"name": S.current.money, "icon": Icons.money_off},
-    {"name": S.current.gift, "icon": Icons.redeem},
-    {"name": S.current.office, "icon": Icons.work},
-
-    {"name": S.current.repair, "icon": Icons.build},
-    {"name": S.current.donate, "icon": Icons.bloodtype},
-    {"name": S.current.lottery, "icon": Icons.money},
-    {"name": S.current.friends, "icon": Icons.diversity_1},
-
-    {"name": S.current.express, "icon": Icons.delivery_dining},
-    {"name": S.current.other, "icon": Icons.settings},
   ];
 
   final List<Map<String, Object>> income = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> clothes = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> toiletries = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> hair = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> makeup = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> carryOn = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> electronics = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> hot = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> rain = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> cold = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> work = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> international = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> outdoors = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> car = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> boat = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> food = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> workout = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> running = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> gym = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> beach = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> fineDining = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> hiking = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> camping = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> tennis = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> yoga = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> winterSports = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> fishing = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> hunting = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> cycling = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> diving = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> golf = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> photography = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> tools = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> pets = [
+    {"name": S.current.salary, "icon": Icons.money},
+    {"name": S.current.sideline, "icon": Icons.credit_card},
+    {"name": S.current.financial, "icon": Icons.account_balance},
+    {"name": S.current.money, "icon": Icons.money_off},
+    {"name": S.current.other, "icon": Icons.currency_bitcoin},
+  ];
+
+  final List<Map<String, Object>> baby = [
     {"name": S.current.salary, "icon": Icons.money},
     {"name": S.current.sideline, "icon": Icons.credit_card},
     {"name": S.current.financial, "icon": Icons.account_balance},
@@ -747,18 +978,29 @@ class _OtherPageState extends State<OtherPage> {
   Widget build(BuildContext context) {
     ToastContext().init(context);
     return DefaultTabController(
-      length: 2,
+      length: 12,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(S.current.app_name, style: TextStyle(fontSize: 18)),
           centerTitle: true,
           bottom: TabBar(
+            isScrollable: true,
+            tabAlignment: .center,
             dividerHeight: 0,
             labelStyle: const TextStyle(fontSize: 18),
             tabs: [
               Tab(text: S.current.expenditure),
               Tab(text: S.current.income),
+              Tab(text: S.current.alcohol),
+              Tab(text: S.current.expenditure),
+              Tab(text: S.current.income),
+              Tab(text: S.current.alcohol),
+              Tab(text: S.current.expenditure),
+              Tab(text: S.current.income),
+              Tab(text: S.current.alcohol),
+              Tab(text: S.current.expenditure),
+              Tab(text: S.current.income),
+              Tab(text: S.current.alcohol),
             ],
           ),
           actions: [
@@ -776,6 +1018,76 @@ class _OtherPageState extends State<OtherPage> {
                   mainAxisSpacing: 4,
                   crossAxisSpacing: 4,
                   children: payBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: incomeBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: incomeBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: incomeBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: incomeBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: incomeBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: payBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: incomeBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: incomeBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: incomeBuildChild(),
+                ),
+                GridView.extent(
+                  maxCrossAxisExtent: 100,
+                  padding: const EdgeInsets.all(4),
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: incomeBuildChild(),
                 ),
                 GridView.extent(
                   maxCrossAxisExtent: 100,

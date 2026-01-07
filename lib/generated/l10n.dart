@@ -54,15 +54,15 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Flamingo`
+  /// `Packory`
   String get app_name {
-    return Intl.message('Flamingo', name: 'app_name', desc: '', args: []);
+    return Intl.message('Packory', name: 'app_name', desc: '', args: []);
   }
 
-  /// `Record it not as an account,\nbut as a choice for the future`
+  /// `Pack, Travel, Repeat`
   String get slogan {
     return Intl.message(
-      'Record it not as an account,\nbut as a choice for the future',
+      'Pack, Travel, Repeat',
       name: 'slogan',
       desc: '',
       args: [],

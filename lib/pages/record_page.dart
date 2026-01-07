@@ -1,5 +1,3 @@
-import 'package:packory/ad/banner.dart';
-import 'package:packory/ad/native.dart';
 import 'package:packory/providers/rewarder_model.dart';
 import 'package:packory/providers/udider_model.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +14,8 @@ class RecordPage extends StatefulWidget {
 class _RecordPageState extends State<RecordPage> {
   @override
   void initState() {
-    BannerAd.removeBanner();
-    NativeAd.removeNative();
+    // BannerAd.removeBanner();
+    // NativeAd.removeNative();
     super.initState();
     final rewarderModel = Provider.of<RewarderModel>(context, listen: false);
     rewarderModel.queryData();

@@ -9,14 +9,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
-  anythink_sdk:
-    dependency: "direct main"
-    description:
-      name: anythink_sdk
-      sha256: a368bd83829156f94c053bd06d8711a9f023878df7e245d33c134e5775150a72
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.8"
   app_tracking_transparency:
     dependency: "direct main"
     description:
