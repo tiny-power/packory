@@ -1,5 +1,4 @@
 import 'package:packory/pages/about_us_page.dart';
-import 'package:packory/pages/feedback_page.dart';
 import 'package:packory/pages/home_page.dart';
 import 'package:packory/pages/other_page.dart';
 import 'package:packory/pages/record_page.dart';
@@ -23,10 +22,6 @@ class AppRoutes {
       GoRoute(
         path: '/aboutUsPage',
         builder: (context, state) => const AboutUsPage(),
-      ),
-      GoRoute(
-        path: '/feedbackPage',
-        builder: (context, state) => const FeedbackPage(),
       ),
       GoRoute(path: '/record', builder: (context, state) => const RecordPage()),
     ],
