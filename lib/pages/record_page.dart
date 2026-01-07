@@ -29,10 +29,7 @@ class _RecordPageState extends State<RecordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('操作记录'),
-      ),
+      appBar: AppBar(title: Text('操作记录', style: TextStyle(fontSize: 18))),
       body: Container(
         padding: .all(12),
         width: double.infinity,
