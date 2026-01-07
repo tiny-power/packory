@@ -16,8 +16,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_udid/flutter_udid.dart';
 import 'package:toast/toast.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-final Uri _url = Uri.parse('https://flutter.dev');
+import 'package:in_app_review/in_app_review.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,6 +26,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with RouteAware {
+  final Uri _url = Uri.parse('https://flutter.dev');
+  final InAppReview inAppReview = InAppReview.instance;
+  bool isAvailable = false;
+
   DateTime selectedDate = DateTime.now();
   // late Timer _interstitialTimer;
   late Timer _timer;
@@ -77,6 +80,11 @@ class _HomePageState extends State<HomePage> with RouteAware {
         rewarderModel.insert();
       }
     });
+    _isAvailable();
+  }
+
+  void _isAvailable() async {
+    isAvailable = await inAppReview.isAvailable();
   }
 
   void showInterstitial() async {
@@ -335,7 +343,10 @@ class _HomePageState extends State<HomePage> with RouteAware {
   }
 
   void _onSettingsPressed() async {
-    await launchUrl(_url, mode: LaunchMode.externalApplication);
+    if (isAvailable) {
+      inAppReview.requestReview();
+    }
+    // await launchUrl(_url, mode: LaunchMode.externalApplication);
   }
 
   Widget buildRecord() {
