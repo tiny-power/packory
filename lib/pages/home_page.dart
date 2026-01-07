@@ -15,6 +15,9 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_udid/flutter_udid.dart';
 import 'package:toast/toast.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _url = Uri.parse('https://flutter.dev');
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -331,7 +334,9 @@ class _HomePageState extends State<HomePage> with RouteAware {
     setState(() {});
   }
 
-  void _onSettingsPressed() {}
+  void _onSettingsPressed() async {
+    await launchUrl(_url, mode: LaunchMode.externalApplication);
+  }
 
   Widget buildRecord() {
     final recorderModel = Provider.of<RecorderModel>(context, listen: false);
